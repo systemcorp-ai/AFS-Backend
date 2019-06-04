@@ -1,6 +1,4 @@
 import flask
-import heroku
-import os
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
