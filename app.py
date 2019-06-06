@@ -61,7 +61,7 @@ def listen():
                 text = x['message']['text']
                 sender_id = x['sender']['id']
                 respond(sender_id, text)
-        print(text['text'])
+        print(text)
         return "ok"
 
 
