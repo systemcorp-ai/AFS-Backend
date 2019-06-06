@@ -1,6 +1,9 @@
 from flask import Flask, request
+from fbmq import Page
 
 app = Flask(__name__)
+# page = Page()
+
 
 FB_API_URL = 'https://graph.facebook.com/v2.6/me/messages'
 VERIFY_TOKEN = '0a8b73cc-ddff-452a-833d-7aab8c8c9ad4'# <paste your verify token here>
@@ -33,7 +36,18 @@ def is_user_message(message):
             not message['message'].get("is_echo"))
 
 
-@app.route("/webhook")
+@app.route('/webhook', methods=['GET'])
+
+def validate():
+    if request.args.get('hub.mode', '') == 'subscribe' and \
+                    request.args.get('hub.verify_token', '') ==   '':
+
+        print("Validating webhook")
+
+        return request.args.get('hub.challenge', '')
+    else:
+        return 'Failed validation. Make sure the validation tokens match.'
+
 def listen():
     """This is the main function flask uses to 
     listen at the `/webhook` endpoint"""
