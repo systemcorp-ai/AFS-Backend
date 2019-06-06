@@ -35,7 +35,7 @@ def is_user_message(message):
             not message['message'].get("is_echo"))
 
 
-@app.route('/webhook', methods=['GET'])
+@app.route('/webhook/', methods=['GET'])
 
 def validate():
     if request.args.get('hub.mode', '') == 'subscribe' and \
