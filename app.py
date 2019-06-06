@@ -39,7 +39,7 @@ def is_user_message(message):
 
 def validate():
     if request.args.get('hub.mode', '') == 'subscribe' and \
-                    request.args.get('hub.verify_token', '') ==   '':
+                    request.args.get('hub.verify_token', '') == '0a8b73cc-ddff-452a-833d-7aab8c8c9ad4':
 
         print("Validating webhook")
 
