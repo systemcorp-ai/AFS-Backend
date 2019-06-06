@@ -1,7 +1,6 @@
 from flask import Flask, request
 
 app = Flask(__name__)
-# page = Page()
 
 
 FB_API_URL = 'https://graph.facebook.com/v2.6/me/messages'
@@ -69,6 +68,7 @@ def listen():
 import requests
 
 def send_message(recipient_id, text):
+    print("!!!!!!!!!!")
     """Send a response to Facebook"""
     payload = {
         'message': {
