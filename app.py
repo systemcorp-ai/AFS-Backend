@@ -1,5 +1,4 @@
 from flask import Flask, request
-from fbmq import Page
 
 app = Flask(__name__)
 # page = Page()
