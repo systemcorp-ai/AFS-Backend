@@ -90,3 +90,6 @@ def send_message(recipient_id, text):
     )
 
     return response.json()
+
+if __name__ == '__main__':
+    app.run( port=5000, debug=True, threaded=True)
