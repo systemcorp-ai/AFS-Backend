@@ -73,7 +73,6 @@ def listen():
 import requests
 
 def send_message(recipient_id, text):
-    print("!!!!!!!!!!")
     """Send a response to Facebook"""
     payload = {
         'message': {
