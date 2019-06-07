@@ -1,5 +1,5 @@
 from flask import Flask, request
-import heroku
+import requests
 
 app = Flask(__name__)
 
@@ -66,11 +66,9 @@ def listen():
                 text = x['message']['text']
                 sender_id = x['sender']['id']
                 respond(sender_id, text)
-        print(text)
         return "ok"
 
 
-import requests
 
 def send_message(recipient_id, text):
     """Send a response to Facebook"""
@@ -97,4 +95,5 @@ def send_message(recipient_id, text):
     return response.json()
 
 if __name__ == '__main__':
-    app.run( port=5000)
+    response=app.run(port=5000)
+    print(response)
